@@ -2,7 +2,7 @@
 
 ### 关于本教程
 
-在本系列教程中, 你将构建一个用于管理书籍及其作者列表的应用程序. **Entity Framework Core**(EF Core)将用作ORM提供者,因为它是默认数据库提供者.
+在本系列教程中, 你将构建一个名为“Acme.BookStore”的ABP应用程序。在此示例项目中，我们将管理书籍及其作者列表。 **Entity Framework Core**(EF Core)将被用作ORM提供者（因为它是默认数据库提供程序）。在前端，将使用MVC/Razor Pages和JavaScript。
 
 这是本教程所有章节中的第一章,下面是所有的章节:
 
@@ -16,13 +16,26 @@
 
 ### 创建项目
 
-创建一个名为`Acme.BookStore`的新项目, 创建数据库并按照[入门文档](../../../Getting-Started-AspNetCore-MVC-Template.md)运行应用程序.
+创建一个名为`Acme.BookStore`的新项目, 其中“Acme”是公司名，“BookStore”是项目名。你也可以查看[入门文档](../../../Getting-Started-AspNetCore-MVC-Template.md)，了解如何进行新项目的创建。接下来，我们将使用**ABP CLI**创建项目。
+
+运行下面的命令，它将使用数据库提供程序**Entity Framework Core**和**MVC / Razor Pages**UI选项，创建一个新的ABP项目。要查看其他CLI选项，请查阅[ABP CLI文档](../../CLI.md)
+
+````
+abp new Acme.BookStore --template app --database-provider ef --ui mvc --mobile none
+````
+![create-project](https://raw.githubusercontent.com/abpframework/abp/master/docs/en/Tutorials/images/bookstore-create-project-mvc.png)
+
+### 应用迁移
+
+创建好项目后，你需要先创建数据库并初始化迁移。应用迁移，右键点击解决方案中的`Acme.BookStore.DbMigrator`项，然后点击**调试**>**启用新实例**，应用程序开始运行并自动进行迁移。成功完成该过程后，您将看到下图中显示的结果。这时，应用程序数据库已准备就绪！
+
+![apply-migrations](https://raw.githubusercontent.com/abpframework/abp/master/docs/en/Tutorials/images/bookstore-migrations-applied-mvc.png)
 
 ### 解决方案的结构
 
 下面的图片展示了从启动模板创建的项目是如何分层的.
 
-![bookstore-visual-studio-solution](images/bookstore-visual-studio-solution-v3.png)
+![bookstore-visual-studio-solution](images/bookstore-visual-studio-solution.png)
 
 > 你可以查看[应用程序模板文档](../startup-templates/application#solution-structure)以详细了解解决方案结构.但是,你将通过本教程了解基础知识.
 
